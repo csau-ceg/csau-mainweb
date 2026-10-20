@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
     // the image optimiser when the CDN refuses a cross-origin request).
     remotePatterns: [new URL("https://cdn.sanity.io/images/wzu06sd5/production/**")],
   },
+  // Old csau.in addresses Google still lists, sent to their pages on this site.
+  async redirects() {
+    return [
+      { source: "/blogs/:path*", destination: "/blog", permanent: true },
+      { source: "/crackit/:path*", destination: "/quick-code", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
