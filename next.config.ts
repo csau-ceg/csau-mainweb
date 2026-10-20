@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/blogs/:path*", destination: "/blog", permanent: true },
       { source: "/crackit/:path*", destination: "/quick-code", permanent: true },
+      // the old "Join Us" page; its exact address wasn't archived, so the likely spellings
+      { source: "/:join(join|joinus|join-us)/:path*", destination: "/contact", permanent: true },
     ];
   },
 };
