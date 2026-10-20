@@ -4,6 +4,7 @@ import { JetBrains_Mono } from "next/font/google";
 import LaserNav from "@/components/LaserNav";
 import SpaceBackdrop from "@/components/SpaceBackdrop";
 import RouteLoadGate from "@/components/RouteLoadGate";
+import { SHARE_DEFAULTS, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -20,9 +21,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "CSAU // CEG - Computer Society of Anna University",
-  description:
-    "Computer Society of Anna University, CEG - Build. Break. Ship.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_NAME, template: "%s | CSAU" },
+  description: SITE_DESCRIPTION,
+  applicationName: "CSAU",
+  keywords: [
+    "CSAU",
+    "Computer Society of Anna University",
+    "CEG",
+    "College of Engineering Guindy",
+    "Anna University",
+    "Ramanujan Computing Centre",
+    "hackathon",
+    "competitive programming",
+    "student tech club",
+    "Chennai",
+  ],
+  ...SHARE_DEFAULTS,
 };
 
 /* Returning visitors skip the boot gate; this marks <html> before paint so it never flashes. It also clears what

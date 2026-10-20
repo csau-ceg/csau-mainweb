@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ARENA_CSS, QUICK_CODE_CSS } from "../arena-css";
 import { QC_ABOUT, QC_WEEKS } from "@/data/quickCode";
 import QuickCodeArchive from "./QuickCodeArchive";
@@ -13,10 +14,11 @@ import QuickCodeArchive from "./QuickCodeArchive";
    Route: /quick-code
    ============================================================ */
 
-export const metadata: Metadata = {
-  title: "Quick Code // CSAU - Computer Society of Anna University",
+export const metadata: Metadata = pageMetadata({
+  title: "Quick Code",
   description: QC_ABOUT.paragraphs[0],
-};
+  path: "/quick-code",
+});
 
 export default function QuickCodePage() {
   return (

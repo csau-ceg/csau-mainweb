@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getEvents } from "@/lib/events";
 import EventsBoard from "./EventsBoard";
 import "./events-page.css";
@@ -12,11 +13,12 @@ import "./events-page.css";
    written here. Route: /events
    ============================================================ */
 
-export const metadata: Metadata = {
-  title: "Events // CSAU - Computer Society of Anna University",
+export const metadata: Metadata = pageMetadata({
+  title: "Events - Hackathons, Workshops and Coding Rounds",
   description:
     "Hackathons, workshops, talks and coding rounds from the Computer Society of Anna University, CEG - what's coming up and the full archive.",
-};
+  path: "/events",
+});
 
 export const revalidate = 3600;
 

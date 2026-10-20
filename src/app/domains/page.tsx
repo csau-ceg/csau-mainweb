@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { getDomains } from "@/lib/domains";
 import SaturnDomains from "@/components/domains/SaturnDomains";
@@ -10,11 +11,12 @@ import SaturnDomains from "@/components/domains/SaturnDomains";
    Route: /domains
    ============================================================ */
 
-export const metadata: Metadata = {
-  title: "Domains // CSAU - Computer Society of Anna University",
+export const metadata: Metadata = pageMetadata({
+  title: "Domains",
   description:
-    "The six domains of the Computer Society of Anna University, CEG - Web & App, CP Wing, Design, Events, HR & Logistics and Marketing & IR.",
-};
+    "The six domains of the Computer Society of Anna University, CEG - Web & App, CP Wing, Design, Events, HR & Logistics and Marketing & IR - and who runs them.",
+  path: "/domains",
+});
 
 export const revalidate = 3600;
 

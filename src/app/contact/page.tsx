@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { CONTACT_BASE, CONTACT_CHANNELS } from "@/data/contact";
 import ContactChannels from "@/components/contact/ContactChannels";
 import "./contact-page.css";
@@ -11,11 +12,12 @@ import "./contact-page.css";
    Route: /contact
    ============================================================ */
 
-export const metadata: Metadata = {
-  title: "Contact // CSAU - Computer Society of Anna University",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact",
   description:
     "Reach the Computer Society of Anna University, CEG - email and the club's Instagram, LinkedIn and Medium.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

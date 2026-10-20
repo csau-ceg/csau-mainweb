@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
 import BlogList from "./BlogList";
 import "./blog-page.css";
@@ -12,11 +13,12 @@ import "./blog-page.css";
    Route: /blog
    ============================================================ */
 
-export const metadata: Metadata = {
-  title: "Blog // CSAU - Computer Society of Anna University",
+export const metadata: Metadata = pageMetadata({
+  title: "Blog",
   description:
     "Technical articles and writing from the Computer Society of Anna University, CEG - published on Medium by the members.",
-};
+  path: "/blog",
+});
 
 // Let the page re-fetch on the server at most once an hour.
 export const revalidate = 3600;

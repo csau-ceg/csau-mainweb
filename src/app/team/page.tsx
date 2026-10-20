@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getTeam } from "@/lib/team";
 import TeamView from "@/components/team/TeamView";
 
@@ -11,11 +12,12 @@ import TeamView from "@/components/team/TeamView";
    Route: /team
    ============================================================ */
 
-export const metadata: Metadata = {
-  title: "Team // CSAU - Computer Society of Anna University",
+export const metadata: Metadata = pageMetadata({
+  title: "Team - Office Bearers, Domain Heads and Deputies",
   description:
-    "The people behind the Computer Society of Anna University, CEG - office bearers, domain heads and deputy heads.",
-};
+    "The 2026-27 team behind the Computer Society of Anna University, CEG - the office bearers, domain heads and deputy heads, with their photos and profiles.",
+  path: "/team",
+});
 
 export const revalidate = 3600;
 

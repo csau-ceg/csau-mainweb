@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPosts, readArticle } from "@/lib/blog";
+import { pageMetadata } from "@/lib/seo";
 import { Cover, Meta } from "../parts";
 import "../blog-page.css";
 
@@ -25,7 +26,14 @@ async function findPost(slug: string) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await findPost((await params).slug);
-  return post ? { title: `${post.title} // CSAU Blog`, description: post.excerpt } : {};
+  if (!post) return {};
+  return pageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${post.id}`,
+    image: post.image || undefined,
+    type: "article",
+  });
 }
 
 export default async function BlogArticle({ params }: Props) {
